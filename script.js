@@ -28,21 +28,29 @@ document.addEventListener("DOMContentLoaded", () => {
     let isAnimating = false;
 
 
-
     /* =====================================================
        UPDATE NAVIGATION
     ===================================================== */
 
     function updateNavigation(){
 
-        prevButton.disabled =
-            currentPage === 0;
+        if(prevButton){
 
-        nextButton.disabled =
-            currentPage === pages.length - 1;
+            prevButton.disabled =
+                currentPage === 0;
+
+        }
 
 
-        dots.forEach((dot,index)=>{
+        if(nextButton){
+
+            nextButton.disabled =
+                currentPage === pages.length - 1;
+
+        }
+
+
+        dots.forEach((dot, index) => {
 
             dot.classList.toggle(
                 "active",
@@ -52,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }
-
 
 
     /* =====================================================
@@ -73,7 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
             newPage >= pages.length ||
             newPage === currentPage
         ){
+
             return;
+
         }
 
 
@@ -87,9 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
             pages[newPage];
 
 
-        /*
-            تجهيز الصفحة الجديدة
-        */
+        /* تجهيز الصفحة الجديدة */
 
         newPageElement.style.transition =
             "none";
@@ -100,31 +107,24 @@ document.addEventListener("DOMContentLoaded", () => {
         newPageElement.style.opacity =
             "0";
 
-
         newPageElement.style.transform =
             direction > 0
-
                 ? "translateX(50px) scale(.985)"
-
                 : "translateX(-50px) scale(.985)";
 
 
-        /*
-            إخفاء الصفحة القديمة
-        */
+        /* إخفاء الصفحة القديمة */
 
         oldPage.classList.remove(
             "active"
         );
 
 
-        /*
-            تشغيل الأنيميشن
-        */
+        /* تشغيل الأنيميشن */
 
-        requestAnimationFrame(()=>{
+        requestAnimationFrame(() => {
 
-            requestAnimationFrame(()=>{
+            requestAnimationFrame(() => {
 
                 newPageElement.style.transition =
                     "";
@@ -151,13 +151,11 @@ document.addEventListener("DOMContentLoaded", () => {
         updateNavigation();
 
 
-        /*
-            تنظيف
-        */
+        /* تنظيف */
 
-        setTimeout(()=>{
+        setTimeout(() => {
 
-            pages.forEach((page,index)=>{
+            pages.forEach((page, index) => {
 
                 if(index !== currentPage){
 
@@ -178,10 +176,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             isAnimating = false;
 
-        },700);
+        }, 700);
 
     }
-
 
 
     /* =====================================================
@@ -219,7 +216,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
     /* =====================================================
        BUTTONS
     ===================================================== */
@@ -234,17 +230,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    nextButton.addEventListener(
-        "click",
-        nextPage
-    );
+    if(nextButton){
+
+        nextButton.addEventListener(
+            "click",
+            nextPage
+        );
+
+    }
 
 
-    prevButton.addEventListener(
-        "click",
-        previousPage
-    );
+    if(prevButton){
 
+        prevButton.addEventListener(
+            "click",
+            previousPage
+        );
+
+    }
 
 
     /* =====================================================
@@ -289,7 +292,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-
     /* =====================================================
        KEYBOARD
     ===================================================== */
@@ -315,7 +317,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-
     /* =====================================================
        TOUCH SWIPE
     ===================================================== */
@@ -331,7 +332,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const touch =
                 event.changedTouches[0];
-
 
             startX =
                 touch.screenX;
@@ -353,18 +353,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const touch =
                 event.changedTouches[0];
 
-
             const differenceX =
                 touch.screenX - startX;
-
 
             const differenceY =
                 touch.screenY - startY;
 
 
-            /*
-                تجاهل الحركة الرأسية
-            */
+            /* تجاهل الحركة الرأسية */
 
             if(
                 Math.abs(differenceX) < 60 ||
@@ -377,10 +373,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            /*
-                سحب للشمال
-                = الصفحة التالية
-            */
+            /* سحب للشمال = التالية */
 
             if(differenceX < 0){
 
@@ -388,11 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
-
-            /*
-                سحب لليمين
-                = الصفحة السابقة
-            */
+            /* سحب لليمين = السابقة */
 
             else{
 
@@ -407,13 +396,11 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-
     /* =====================================================
        INITIAL NAVIGATION
     ===================================================== */
 
     updateNavigation();
-
 
 
     /* =====================================================
@@ -423,28 +410,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const music =
         document.getElementById("music");
 
-
     const musicButton =
         document.getElementById("musicBtn");
-
 
     const musicWidget =
         document.getElementById(
             "musicWidget"
         );
 
-
     const progress =
         document.getElementById(
             "progress"
         );
 
-
     const musicStatus =
         document.getElementById(
             "musicStatus"
         );
-
 
     const time =
         document.getElementById(
@@ -452,367 +434,444 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-
     /* =====================================================
-       FORMAT TIME
+       CHECK MUSIC ELEMENTS
     ===================================================== */
 
-    function formatTime(seconds){
-
-        if(
-            !Number.isFinite(seconds)
-        ){
-
-            return "0:00";
-
-        }
-
-
-        const minutes =
-            Math.floor(
-                seconds / 60
-            );
-
-
-        const remainingSeconds =
-            Math.floor(
-                seconds % 60
-            );
-
-
-        return (
-            minutes +
-            ":" +
-            String(
-                remainingSeconds
-            ).padStart(2,"0")
-        );
-
-    }
-
-
-
-    /* =====================================================
-       MUSIC UI
-    ===================================================== */
-
-    function updateMusicUI(
-        isPlaying
+    if(
+        music &&
+        musicButton &&
+        musicWidget &&
+        progress &&
+        musicStatus &&
+        time
     ){
 
-        musicWidget.classList.toggle(
-            "playing",
+        let musicStarted = false;
+
+
+        /* =================================================
+           FORMAT TIME
+        ================================================= */
+
+        function formatTime(seconds){
+
+            if(
+                !Number.isFinite(seconds)
+            ){
+
+                return "0:00";
+
+            }
+
+
+            const minutes =
+                Math.floor(
+                    seconds / 60
+                );
+
+
+            const remainingSeconds =
+                Math.floor(
+                    seconds % 60
+                );
+
+
+            return (
+                minutes +
+                ":" +
+                String(
+                    remainingSeconds
+                ).padStart(2, "0")
+            );
+
+        }
+
+
+        /* =================================================
+           MUSIC UI
+        ================================================= */
+
+        function updateMusicUI(
             isPlaying
-        );
+        ){
+
+            musicWidget.classList.toggle(
+                "playing",
+                isPlaying
+            );
 
 
-        if(isPlaying){
+            if(isPlaying){
 
-            musicStatus.textContent =
-                "بتشتغل دلوقتي...";
-
-        }
-
-        else{
-
-            musicStatus.textContent =
-                "اضغط للتشغيل";
-
-        }
-
-    }
-
-
-
-    /* =====================================================
-       PLAY MUSIC
-    ===================================================== */
-
-    async function playMusic(){
-
-        try{
-
-            await music.play();
-
-            updateMusicUI(true);
-
-        }
-
-        catch(error){
-
-            updateMusicUI(false);
-
-            musicStatus.textContent =
-                "اضغط ▶ للتشغيل";
-
-        }
-
-    }
-
-
-
-    /* =====================================================
-       PLAY / PAUSE
-    ===================================================== */
-
-    musicButton.addEventListener(
-        "click",
-        () => {
-
-            if(music.paused){
-
-                playMusic();
+                musicStatus.textContent =
+                    "بتشتغل دلوقتي...";
 
             }
 
             else{
 
-                music.pause();
+                musicStatus.textContent =
+                    "اضغط للتشغيل";
+
+            }
+
+        }
+
+
+        /* =================================================
+           PLAY MUSIC
+        ================================================= */
+
+        async function playMusic(){
+
+            try{
+
+                await music.play();
+
+                musicStarted = true;
+
+                updateMusicUI(true);
+
+                return true;
+
+            }
+
+            catch(error){
+
+                musicStarted = false;
 
                 updateMusicUI(false);
+
+                return false;
+
+            }
+
+        }
+
+
+        /* =================================================
+           PLAY / PAUSE BUTTON
+        ================================================= */
+
+        musicButton.addEventListener(
+            "click",
+            async event => {
+
+                event.stopPropagation();
+
+
+                if(music.paused){
+
+                    await playMusic();
+
+                }
+
+                else{
+
+                    music.pause();
+
+                    musicStarted = false;
+
+                    updateMusicUI(false);
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           AUDIO EVENTS
+        ================================================= */
+
+        music.addEventListener(
+            "loadedmetadata",
+            () => {
+
+                time.textContent =
+                    formatTime(
+                        music.duration
+                    );
+
+            }
+        );
+
+
+        music.addEventListener(
+            "timeupdate",
+            () => {
+
+                if(!music.duration)
+                    return;
+
+
+                const percentage =
+                    (
+                        music.currentTime /
+                        music.duration
+                    ) * 100;
+
+
+                progress.value =
+                    percentage;
+
+
+                time.textContent =
+                    formatTime(
+                        music.currentTime
+                    );
+
+            }
+        );
+
+
+        music.addEventListener(
+            "play",
+            () => {
+
+                musicStarted = true;
+
+                updateMusicUI(true);
+
+            }
+        );
+
+
+        music.addEventListener(
+            "pause",
+            () => {
+
+                updateMusicUI(false);
+
+            }
+        );
+
+
+        music.addEventListener(
+            "ended",
+            () => {
+
+                updateMusicUI(false);
+
+            }
+        );
+
+
+        music.addEventListener(
+            "error",
+            () => {
+
+                musicStatus.textContent =
+                    "تعذر تحميل الأغنية";
+
+                updateMusicUI(false);
+
+            }
+        );
+
+
+        /* =================================================
+           PROGRESS BAR
+        ================================================= */
+
+        progress.addEventListener(
+            "input",
+            () => {
+
+                if(!music.duration)
+                    return;
+
+
+                music.currentTime =
+                    (
+                        progress.value /
+                        100
+                    ) *
+                    music.duration;
+
+            }
+        );
+
+
+        /* =================================================
+           AUTOPLAY
+        ================================================= */
+
+        /*
+           نحاول تشغيل الأغنية عند فتح الموقع.
+           لو المتصفح منع التشغيل،
+           هنحاول مرة أخرى عند أول تفاعل.
+        */
+
+        playMusic();
+
+
+        /* =================================================
+           START MUSIC AFTER FIRST INTERACTION
+        ================================================= */
+
+        function startMusicAfterInteraction(){
+
+            if(musicStarted)
+                return;
+
+
+            playMusic();
+
+        }
+
+
+        document.addEventListener(
+            "pointerdown",
+            startMusicAfterInteraction,
+            {
+                passive:true
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       IMAGE VIEWER
+    ===================================================== */
+
+    const imageViewer =
+        document.getElementById(
+            "imageViewer"
+        );
+
+    const viewerImage =
+        document.getElementById(
+            "viewerImage"
+        );
+
+    const imageMessage =
+        document.getElementById(
+            "imageMessage"
+        );
+
+
+    /* =====================================================
+       OPEN IMAGE
+    ===================================================== */
+
+    window.openImage = function(
+        imageSrc,
+        message
+    ){
+
+        if(
+            !imageViewer ||
+            !viewerImage ||
+            !imageMessage
+        ){
+
+            return;
+
+        }
+
+
+        viewerImage.src =
+            imageSrc;
+
+        imageMessage.textContent =
+            message;
+
+
+        imageViewer.classList.add(
+            "show"
+        );
+
+
+        document.body.style.overflow =
+            "hidden";
+
+    };
+
+
+    /* =====================================================
+       CLOSE IMAGE
+    ===================================================== */
+
+    window.closeImage = function(){
+
+        if(!imageViewer)
+            return;
+
+
+        imageViewer.classList.remove(
+            "show"
+        );
+
+
+        /*
+           مهم:
+           الصفحات نفسها محتاجة تفضل
+           بدون تغيير في overflow.
+        */
+
+        document.body.style.overflow =
+            "hidden";
+
+
+        setTimeout(() => {
+
+            if(viewerImage){
+
+                viewerImage.src =
+                    "";
+
+            }
+
+        }, 300);
+
+    };
+
+
+    /* =====================================================
+       CLOSE IMAGE BY BACKGROUND
+    ===================================================== */
+
+    if(imageViewer){
+
+        imageViewer.addEventListener(
+            "click",
+            event => {
+
+                if(
+                    event.target ===
+                    imageViewer
+                ){
+
+                    window.closeImage();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       ESC TO CLOSE IMAGE
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if(
+                event.key === "Escape"
+            ){
+
+                window.closeImage();
 
             }
 
         }
     );
 
-
-
-    /* =====================================================
-       AUDIO EVENTS
-    ===================================================== */
-
-    music.addEventListener(
-        "loadedmetadata",
-        () => {
-
-            time.textContent =
-                formatTime(
-                    music.duration
-                );
-
-        }
-    );
-
-
-    music.addEventListener(
-        "timeupdate",
-        () => {
-
-            if(!music.duration)
-                return;
-
-
-            const percentage =
-                (
-                    music.currentTime /
-                    music.duration
-                ) * 100;
-
-
-            progress.value =
-                percentage;
-
-
-            time.textContent =
-                formatTime(
-                    music.currentTime
-                );
-
-        }
-    );
-
-
-    music.addEventListener(
-        "play",
-        () => {
-
-            updateMusicUI(true);
-
-        }
-    );
-
-
-    music.addEventListener(
-        "pause",
-        () => {
-
-            updateMusicUI(false);
-
-        }
-    );
-
-
-
-    /* =====================================================
-       PROGRESS BAR
-    ===================================================== */
-
-    progress.addEventListener(
-        "input",
-        () => {
-
-            if(!music.duration)
-                return;
-
-
-            music.currentTime =
-                (
-                    progress.value /
-                    100
-                ) *
-                music.duration;
-
-        }
-    );
-
-
-
-    /* =====================================================
-   MUSIC AUTOPLAY
-===================================================== */
-
-let musicStarted = false;
-
-
-/* محاولة التشغيل عند فتح الموقع */
-
-playMusic()
-    .then(() => {
-        musicStarted = true;
-    })
-    .catch(() => {
-        musicStarted = false;
-    });
-
-
-
-/* =====================================================
-   START MUSIC ON FIRST USER INTERACTION
-===================================================== */
-
-async function startMusicAfterInteraction(){
-
-    if(musicStarted)
-        return;
-
-    try{
-
-        await music.play();
-
-        musicStarted = true;
-
-        updateMusicUI(true);
-
-    }
-
-    catch(error){
-
-        console.log(
-            "Autoplay blocked:",
-            error
-        );
-
-    }
-
-}
-
-
-/*
-    أول لمسة في الموقع
-*/
-
-document.addEventListener(
-    "pointerdown",
-    startMusicAfterInteraction,
-    {
-        once:false,
-        passive:true
-    }
-);
-/* =====================================================
-   IMAGE VIEWER
-===================================================== */
-
-const imageViewer =
-    document.getElementById("imageViewer");
-
-const viewerImage =
-    document.getElementById("viewerImage");
-
-const imageMessage =
-    document.getElementById("imageMessage");
-
-
-function openImage(
-    imageSrc,
-    message
-){
-
-    viewerImage.src =
-        imageSrc;
-
-    imageMessage.textContent =
-        message;
-
-    imageViewer.classList.add(
-        "show"
-    );
-
-    document.body.style.overflow =
-        "hidden";
-}
-
-
-function closeImage(){
-
-    imageViewer.classList.remove(
-        "show"
-    );
-
-    document.body.style.overflow =
-        "hidden";
-
-    setTimeout(()=>{
-
-        viewerImage.src = "";
-
-    },300);
-}
-
-
-/* الضغط على الخلفية يقفل الصورة */
-
-imageViewer.addEventListener(
-    "click",
-    event => {
-
-        if(
-            event.target ===
-            imageViewer
-        ){
-
-            closeImage();
-
-        }
-
-    }
-);
-
-
-/* زر ESC على الكمبيوتر */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if(
-            event.key === "Escape"
-        ){
-
-            closeImage();
-
-        }
-
-    }
-);
+});
