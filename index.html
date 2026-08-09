@@ -1,211 +1,676 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#09090f">
-  <meta name="description" content="رسالة صغيرة لشخص مميز">
-  <title>رسالة صغيرة ♡</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
 
-  <link rel="stylesheet" href="style.css">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#08080d">
+
+<title>رسالة صغيرة ♡</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="style.css">
+
 </head>
 
+
 <body>
-  <div class="ambient ambient-one"></div>
-  <div class="ambient ambient-two"></div>
-  <div class="noise"></div>
 
-  <!-- ================= INTRO ================= -->
-  <header class="hero" id="home">
-    <div class="hero-inner reveal">
-      <div class="heart-orb" aria-hidden="true">♡</div>
 
-      <p class="eyebrow">رسالة صغيرة، بس مش عادية</p>
+<!-- ================= Background ================= -->
 
-      <h1>
-        الموقع ده ملوش لازمة...
-        <br>
-        إلا لو الشخص اللي بسببه
-        <span>لسه بيفتحه 👀</span>
-      </h1>
+<div class="ambient a1"></div>
 
-      <p class="hero-sub">
-        مفيش حاجة مستعجلة هنا... خدي وقتك.
-      </p>
+<div class="ambient a2"></div>
 
-      <button class="glass-btn primary-btn" data-scroll="#story">
-        <span>كمّلي</span>
-        <span class="btn-arrow">←</span>
-      </button>
-    </div>
+<div class="noise"></div>
 
-    <div class="scroll-indicator" aria-hidden="true">
-      <span></span>
-    </div>
-  </header>
 
-  <!-- ================= STORY ================= -->
-  <main>
-    <section class="section story" id="story">
-      <div class="section-heading reveal">
-        <span class="section-kicker">01 · من البداية</span>
-        <h2>يمكن الموضوع بدأ ببساطة...</h2>
-        <p>
-          لكن في حاجات صغيرة بتكبر مع الوقت، حتى لو إحنا مش واخدين بالنا.
-        </p>
-      </div>
 
-      <div class="story-card glass-card reveal">
-        <div class="card-icon">✦</div>
-        <p>
-          مش كل الذكريات محتاجة كلام كتير.
-          ساعات موقف صغير، ضحكة، أو حتى لحظة عادية جدًا
-          بتفضل فاكرها أكتر مما كنت متوقع.
-        </p>
-      </div>
-    </section>
+<!-- ================= Pages ================= -->
 
-    <!-- ================= MEMORIES ================= -->
-    <section class="section memories" id="memories">
-      <div class="section-heading reveal">
-        <span class="section-kicker">02 · حاجات لسه فاكرها</span>
-        <h2>شوية حاجات من اللي فضلوا</h2>
-        <p>بدّل الصور والنصوص دي بذكرياتكم الحقيقية.</p>
-      </div>
+<main id="pages">
 
-      <div class="memory-grid">
-        <article class="memory-card glass-card reveal">
-          <div class="memory-image placeholder-image image-one">
-            <span>صورة 01</span>
-          </div>
-          <div class="memory-content">
-            <span class="memory-number">01</span>
-            <h3>أول حاجة لسه فاكرها</h3>
-            <p>اكتب هنا موقف صغير أنت لسه فاكره.</p>
-          </div>
-        </article>
 
-        <article class="memory-card glass-card reveal">
-          <div class="memory-image placeholder-image image-two">
-            <span>صورة 02</span>
-          </div>
-          <div class="memory-content">
-            <span class="memory-number">02</span>
-            <h3>تفصيلة بسيطة</h3>
-            <p>تفصيلة عادية بالنسبة لأي حد، بس مش بالنسبة لك.</p>
-          </div>
-        </article>
+<!-- ================= Page 1 ================= -->
 
-        <article class="memory-card glass-card reveal">
-          <div class="memory-image placeholder-image image-three">
-            <span>صورة 03</span>
-          </div>
-          <div class="memory-content">
-            <span class="memory-number">03</span>
-            <h3>ضحكة لسه فاكرها</h3>
-            <p>هنا ممكن تحط ذكرى أو صورة ليها معنى خاص.</p>
-          </div>
-        </article>
-      </div>
-    </section>
+<section class="page active">
 
-    <!-- ================= TRANSITION ================= -->
-    <section class="section pause-section">
-      <div class="pause-card reveal">
-        <div class="tiny-line"></div>
-        <p>
-          وكل ما كنت بقول إن الموضوع عدى...
-          <br>
-          كنت باكتشف إن في كلام لسه متقالش.
-        </p>
-        <div class="tiny-line"></div>
-      </div>
-    </section>
+<div class="content">
 
-    <!-- ================= LETTER ================= -->
-    <section class="section letter-section" id="letter">
-      <div class="section-heading reveal">
-        <span class="section-kicker">03 · الكلام الحقيقي</span>
-        <h2>المرة دي هقولها بهدوء</h2>
-      </div>
+<div class="orb">
+♡
+</div>
 
-      <article class="letter glass-card reveal">
-        <div class="letter-top">
-          <span>إلى الشخص اللي لسه له مكان</span>
-          <span class="letter-heart">♡</span>
-        </div>
+<span class="eyebrow">
+رسالة صغيرة...
+</span>
 
-        <div class="letter-body">
-          <p>مش داخل أقول إن كل حاجة كانت صح.</p>
 
-          <p>
-            ومش داخل أطلب منك تنسي اللي حصل أو نتعامل كأن مفيش حاجة حصلت.
-            أنا بس حبيت أكون صريح مع نفسي ومعاكي.
-          </p>
+<h1>
 
-          <p>
-            بعد كل الوقت ده، اكتشفت إن في كلام كان نفسي أقوله
-            من غير زعل، ومن غير لوم، ومن غير ضغط.
-          </p>
+الموقع ده ملوش لازمة...
 
-          <p>
-            يمكن إحنا اتغيرنا، ويمكن حاجات كتير اتغيرت،
-            بس لو لسه في مساحة للكلام...
-            أنا حابب أبدأ من النقطة دي.
-          </p>
+<br>
 
-          <p class="letter-final">
-            مش بوعدك بحاجة كبيرة،
-            غير إني المرة دي هسمع قبل ما أتكلم.
-          </p>
-        </div>
-      </article>
-    </section>
+إلا لو الشخص اللي بسببه
 
-    <!-- ================= FINAL ================= -->
-    <section class="section final-section" id="final">
-      <div class="final-card reveal">
-        <div class="final-orb">♡</div>
+<span>
+لسه بيفتحه 👀
+</span>
 
-        <span class="section-kicker">04 · وآخر حاجة</span>
+</h1>
 
-        <h2>
-          لو لسه في مساحة للكلام...
-          <span>أنا هنا.</span>
-        </h2>
 
-        <p>
-          القرار في إيدك، ومهما كان، هحترمه.
-          الفكرة كلها إني مكنتش عايز أفضل ساكت.
-        </p>
+<p class="muted">
+خدي وقتك... مفيش حاجة مستعجلة هنا.
+</p>
 
-        <a class="glass-btn contact-btn"
-           href="https://wa.me/201000000000"
-           target="_blank"
-           rel="noopener">
-          <span>نتكلم؟</span>
-          <span>♡</span>
-        </a>
 
-        <p class="small-note">
-          غيّر رقم الواتساب في <b>index.html</b> قبل النشر.
-        </p>
-      </div>
-    </section>
-  </main>
+<button class="action next">
 
-  <!-- ================= FUTURE MUSIC PLAYER ================= -->
-  <!--
-    مكان مشغل الأغنية الزجاجي.
-    سيضاف هنا في المرحلة الأخيرة بعد تجهيز مقطع الصوت.
-  -->
+<span>
+كمّلي
+</span>
 
-  <button class="top-button" id="topButton" aria-label="العودة للأعلى">↑</button>
+<b>
+←
+</b>
 
-  <script src="script.js"></script>
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= Page 2 ================= -->
+
+<section class="page">
+
+<div class="content">
+
+<span class="number">
+01 / البداية
+</span>
+
+
+<div class="symbol">
+✦
+</div>
+
+
+<h2>
+يمكن الموضوع بدأ ببساطة...
+</h2>
+
+
+<p class="main-text">
+
+بس في حاجات صغيرة بتكبر مع الوقت،
+حتى لو إحنا مش واخدين بالنا.
+
+</p>
+
+
+<div class="glass">
+
+<p>
+
+مش كل الذكريات محتاجة كلام كتير.
+
+ساعات موقف صغير،
+ضحكة،
+أو حتى لحظة عادية جدًا...
+
+بتفضل فاكرها أكتر مما كنت متوقع.
+
+</p>
+
+</div>
+
+
+<button class="action next">
+
+<span>
+نكمل
+</span>
+
+<b>
+←
+</b>
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= Page 3 ================= -->
+
+<section class="page">
+
+<div class="content">
+
+<span class="number">
+02 / الذكريات
+</span>
+
+
+<h2>
+شوية حاجات لسه فاكرها
+</h2>
+
+
+<p class="main-text">
+
+الصور الحقيقية هتتحط هنا في الآخر.
+
+</p>
+
+
+<div class="memories">
+
+
+<!-- Memory 1 -->
+
+<article>
+
+<div class="photo">
+
+ضع الصورة 01 هنا
+
+</div>
+
+
+<div class="memory-text">
+
+<small>
+01
+</small>
+
+
+<h3>
+أول حاجة لسه فاكرها
+</h3>
+
+
+<p>
+اكتب هنا الموقف.
+</p>
+
+</div>
+
+</article>
+
+
+
+<!-- Memory 2 -->
+
+<article>
+
+<div class="photo p2">
+
+ضع الصورة 02 هنا
+
+</div>
+
+
+<div class="memory-text">
+
+<small>
+02
+</small>
+
+
+<h3>
+تفصيلة بسيطة
+</h3>
+
+
+<p>
+تفصيلة ليها معنى.
+</p>
+
+</div>
+
+</article>
+
+
+
+<!-- Memory 3 -->
+
+<article>
+
+<div class="photo p3">
+
+ضع الصورة 03 هنا
+
+</div>
+
+
+<div class="memory-text">
+
+<small>
+03
+</small>
+
+
+<h3>
+ذكرى لسه موجودة
+</h3>
+
+
+<p>
+مكان لصورة إضافية.
+</p>
+
+</div>
+
+</article>
+
+
+</div>
+
+
+<button class="action next">
+
+<span>
+نكمل
+</span>
+
+<b>
+←
+</b>
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= Page 4 ================= -->
+
+<section class="page">
+
+<div class="content">
+
+<span class="number">
+03 / الكلام
+</span>
+
+
+<div class="quote">
+“
+</div>
+
+
+<h2>
+
+وكل ما كنت بقول إن الموضوع عدى...
+
+</h2>
+
+
+<p class="main-text">
+
+كنت باكتشف إن في كلام لسه متقالش.
+
+</p>
+
+
+<div class="line"></div>
+
+
+<p class="muted">
+
+ويمكن أحسن وقت أقوله فيه...
+هو دلوقتي.
+
+</p>
+
+
+<button class="action next">
+
+<span>
+اقري الرسالة
+</span>
+
+<b>
+←
+</b>
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= Page 5 ================= -->
+
+<section class="page">
+
+<div class="content">
+
+<span class="number">
+04 / الرسالة
+</span>
+
+
+<div class="letter">
+
+
+<header>
+
+<span>
+إلى الشخص اللي لسه له مكان
+</span>
+
+
+<strong>
+♡
+</strong>
+
+</header>
+
+
+
+<div class="letter-body">
+
+
+<p>
+
+مش داخل أقول إن كل حاجة كانت صح.
+
+</p>
+
+
+<p>
+
+ومش داخل أطلب منك تنسي اللي حصل،
+أو نتعامل كأن مفيش حاجة حصلت.
+
+أنا بس حبيت أكون صريح
+مع نفسي ومعاكي.
+
+</p>
+
+
+<p>
+
+بعد كل الوقت ده،
+اكتشفت إن في كلام كان نفسي أقوله
+من غير زعل،
+ومن غير لوم،
+ومن غير ضغط.
+
+</p>
+
+
+<p>
+
+يمكن إحنا اتغيرنا،
+ويمكن حاجات كتير اتغيرت،
+
+بس لو لسه في مساحة للكلام...
+
+أنا حابب أبدأ من النقطة دي.
+
+</p>
+
+
+<p class="final">
+
+مش بوعدك بحاجة كبيرة،
+غير إني المرة دي هسمع قبل ما أتكلم.
+
+</p>
+
+
+</div>
+
+</div>
+
+
+<button class="action next">
+
+<span>
+آخر حاجة
+</span>
+
+<b>
+←
+</b>
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= Page 6 ================= -->
+
+<section class="page">
+
+<div class="content">
+
+
+<div class="orb">
+♡
+</div>
+
+
+<span class="eyebrow">
+وآخر حاجة...
+</span>
+
+
+<h2>
+
+لو لسه في مساحة للكلام...
+
+<span>
+أنا هنا.
+</span>
+
+</h2>
+
+
+<p class="main-text">
+
+القرار في إيدك،
+ومهما كان، هحترمه.
+
+<br>
+
+الفكرة كلها إني مكنتش عايز أفضل ساكت.
+
+</p>
+
+
+<!-- غير رقم الواتساب بعدين -->
+
+<a
+class="action contact"
+href="https://wa.me/201000000000"
+target="_blank"
+rel="noopener">
+
+نتكلم؟ ♡
+
+</a>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- ================= Navigation ================= -->
+
+<div class="navigation">
+
+
+<button
+id="prev"
+class="nav">
+
+→
+
+</button>
+
+
+<div class="dots">
+
+
+<button
+class="dot active"
+data-i="0">
+</button>
+
+
+<button
+class="dot"
+data-i="1">
+</button>
+
+
+<button
+class="dot"
+data-i="2">
+</button>
+
+
+<button
+class="dot"
+data-i="3">
+</button>
+
+
+<button
+class="dot"
+data-i="4">
+</button>
+
+
+<button
+class="dot"
+data-i="5">
+</button>
+
+
+</div>
+
+
+<button
+id="next"
+class="nav">
+
+←
+
+</button>
+
+
+</div>
+
+
+
+<!-- ================= iOS Glass Music Player ================= -->
+
+<div
+class="music-widget"
+id="musicWidget">
+
+
+<audio
+id="music"
+preload="metadata"
+loop>
+
+<source
+src="assets/song.mp3"
+type="audio/mpeg">
+
+</audio>
+
+
+<button
+id="musicBtn"
+class="music-btn"
+aria-label="تشغيل الموسيقى">
+
+<span class="play">
+▶
+</span>
+
+<span class="pause">
+Ⅱ
+</span>
+
+</button>
+
+
+<div class="music-info">
+
+
+<b>
+أغنية صغيرة...
+</b>
+
+
+<small id="musicStatus">
+اضغط للتشغيل
+</small>
+
+
+<input
+id="progress"
+type="range"
+min="0"
+max="100"
+value="0">
+
+</div>
+
+
+<time id="time">
+0:00
+</time>
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
 </body>
-</html>
+
+  </html>
