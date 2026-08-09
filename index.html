@@ -609,71 +609,69 @@ class="nav">
 <!-- ================= iOS Glass Music Player ================= -->
 
 <div
-class="music-widget"
-id="musicWidget">
+    class="music-widget"
+    id="musicWidget">
+
+    <audio
+    id="music"
+    preload="auto"
+    loop>
+
+        <source
+            src="assets/song.mp3"
+            type="audio/mpeg">
+
+    </audio>
 
 
-<audio
-id="music"
-preload="metadata"
-loop>
+    <button
+        id="musicBtn"
+        class="music-btn"
+        aria-label="تشغيل الموسيقى">
 
-<source
-src="assets/song.mp3"
-type="audio/mpeg">
+        <span class="play">
+            ▶
+        </span>
 
-</audio>
+        <span class="pause">
+            Ⅱ
+        </span>
 
-
-<button
-id="musicBtn"
-class="music-btn"
-aria-label="تشغيل الموسيقى">
-
-<span class="play">
-▶
-</span>
-
-<span class="pause">
-Ⅱ
-</span>
-
-</button>
+    </button>
 
 
-<div class="music-info">
+    <div class="music-info">
+
+        <b>
+            أغنية صغيرة...
+        </b>
+
+        <small id="musicStatus">
+            اضغط للتشغيل
+        </small>
+
+        <input
+            id="progress"
+            type="range"
+            min="0"
+            max="100"
+            value="0">
+
+    </div>
 
 
-<b>
-أغنية صغيرة...
-</b>
-
-
-<small id="musicStatus">
-اضغط للتشغيل
-</small>
-
-
-<input
-id="progress"
-type="range"
-min="0"
-max="100"
-value="0">
-
-</div>
-
-
-<time id="time">
-0:00
-</time>
-
+    <time id="time">
+        0:00
+    </time>
 
 </div>
 
-    <!-- ================= Image Viewer ================= -->
 
-<div class="image-viewer" id="imageViewer">
+<!-- ================= Image Viewer ================= -->
+
+<div
+    class="image-viewer"
+    id="imageViewer">
 
     <button
         class="image-close"
@@ -697,11 +695,11 @@ value="0">
 
 </div>
 
-<script src="script.js"></script>
 
+<!-- ================= JavaScript ================= -->
 
 <script src="script.js"></script>
 
 </body>
 
-  </html>
+</html>
