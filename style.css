@@ -1048,3 +1048,319 @@ h2{
     }
 
   }
+
+
+/* =========================================================
+   IMAGE VIEWER
+========================================================= */
+
+.image-viewer{
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:25px;
+
+    background:
+        rgba(4,4,8,.82);
+
+    backdrop-filter:
+        blur(25px);
+
+    -webkit-backdrop-filter:
+        blur(25px);
+
+    opacity:0;
+
+    transition:
+        opacity .35s ease;
+}
+
+.image-viewer.show{
+    display:flex;
+
+    opacity:1;
+}
+
+
+.image-viewer-content{
+    position:relative;
+
+    width:min(
+        900px,
+        100%
+    );
+
+    max-height:90vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:18px;
+}
+
+
+/* الكلام فوق الصورة */
+
+.image-message{
+    width:100%;
+
+    text-align:center;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    padding:
+        12px
+        20px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 15px 50px
+        rgba(0,0,0,.35);
+}
+
+
+/* الصورة */
+
+.image-viewer img{
+    display:block;
+
+    max-width:100%;
+
+    max-height:
+        calc(90vh - 100px);
+
+    width:auto;
+
+    height:auto;
+
+    object-fit:contain;
+
+    border-radius:22px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.65);
+}
+
+
+/* زر الإغلاق */
+
+.image-close{
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    z-index:5;
+
+    width:45px;
+
+    height:45px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.1);
+
+    color:#fff;
+
+    font-size:30px;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    transition:.25s;
+}
+
+.image-close:hover{
+    background:
+        rgba(255,95,135,.2);
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* =========================================================
+   PHOTO THUMBNAILS
+========================================================= */
+
+.photo{
+    position:relative;
+
+    overflow:hidden;
+
+    cursor:pointer;
+}
+
+.photo img{
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+}
+
+.photo:hover img{
+    transform:scale(1.06);
+
+    filter:
+        brightness(.75);
+}
+
+
+/* overlay */
+
+.photo-overlay{
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+    padding:15px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.65)
+        );
+
+    opacity:0;
+
+    transition:.3s;
+
+    pointer-events:none;
+}
+
+.photo:hover .photo-overlay{
+    opacity:1;
+}
+
+.photo-overlay span{
+    padding:
+        6px
+        12px;
+
+    border-radius:12px;
+
+    background:
+        rgba(0,0,0,.4);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    font-size:10px;
+
+    color:#fff;
+}
+
+
+/* =========================================================
+   MOBILE IMAGE VIEWER
+========================================================= */
+
+@media(max-width:700px){
+
+    .image-viewer{
+        padding:
+            18px;
+    }
+
+    .image-viewer-content{
+        width:100%;
+
+        max-height:88vh;
+
+        gap:14px;
+    }
+
+    .image-viewer img{
+        max-width:100%;
+
+        max-height:
+            calc(88vh - 80px);
+
+        border-radius:18px;
+    }
+
+    .image-message{
+        font-size:13px;
+
+        padding:
+            10px
+            14px;
+    }
+
+    .image-close{
+        top:12px;
+
+        right:12px;
+
+        width:40px;
+
+        height:40px;
+
+        font-size:26px;
+    }
+
+}
