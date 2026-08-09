@@ -683,3 +683,91 @@ document.addEventListener("DOMContentLoaded", () => {
     playMusic();
 
 });
+
+
+/* =====================================================
+   IMAGE VIEWER
+===================================================== */
+
+const imageViewer =
+    document.getElementById("imageViewer");
+
+const viewerImage =
+    document.getElementById("viewerImage");
+
+const imageMessage =
+    document.getElementById("imageMessage");
+
+
+function openImage(
+    imageSrc,
+    message
+){
+
+    viewerImage.src =
+        imageSrc;
+
+    imageMessage.textContent =
+        message;
+
+    imageViewer.classList.add(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+function closeImage(){
+
+    imageViewer.classList.remove(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+
+    setTimeout(()=>{
+
+        viewerImage.src = "";
+
+    },300);
+}
+
+
+/* الضغط على الخلفية يقفل الصورة */
+
+imageViewer.addEventListener(
+    "click",
+    event => {
+
+        if(
+            event.target ===
+            imageViewer
+        ){
+
+            closeImage();
+
+        }
+
+    }
+);
+
+
+/* زر ESC على الكمبيوتر */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeImage();
+
+        }
+
+    }
+);
