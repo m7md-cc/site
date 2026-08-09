@@ -669,22 +669,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       MUSIC AUTOPLAY
-    ===================================================== */
+   MUSIC AUTOPLAY
+===================================================== */
 
-    /*
-        نحاول تشغيل الأغنية
-        عند فتح الموقع.
-
-        لو المتصفح منع autoplay،
-        زر التشغيل يظل جاهزًا.
-    */
-
-    playMusic();
-
-});
+let musicStarted = false;
 
 
+/* محاولة التشغيل عند فتح الموقع */
+
+playMusic()
+    .then(() => {
+        musicStarted = true;
+    })
+    .catch(() => {
+        musicStarted = false;
+    });
+
+
+
+/* =====================================================
+   START MUSIC ON FIRST USER INTERACTION
+===================================================== */
+
+async function startMusicAfterInteraction(){
+
+    if(musicStarted)
+        return;
+
+    try{
+
+        await music.play();
+
+        musicStarted = true;
+
+        updateMusicUI(true);
+
+    }
+
+    catch(error){
+
+        console.log(
+            "Autoplay blocked:",
+            error
+        );
+
+    }
+
+}
+
+
+/*
+    أول لمسة في الموقع
+*/
+
+document.addEventListener(
+    "pointerdown",
+    startMusicAfterInteraction,
+    {
+        once:false,
+        passive:true
+    }
+);
 /* =====================================================
    IMAGE VIEWER
 ===================================================== */
