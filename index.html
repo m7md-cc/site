@@ -193,8 +193,12 @@ href="style.css">
 
 <article>
 
-<div class="photo">
+<div class="photo" onclick="openImage('assets/photo1.jpg', 'لما اعترفتي مكنتش مصدق وقتها')">
     <img src="assets/photo1.jpg" alt="ذكرى">
+    <div class="photo-overlay">
+        <span>دوسي علشان الصورة تفتح</span>
+    </div>
+     
 </div>
 
 
@@ -211,7 +215,7 @@ href="style.css">
 
 
 <p>
-اكتب هنا الموقف.
+... 
 </p>
 
 </div>
@@ -224,8 +228,11 @@ href="style.css">
 
 <article>
 
-<div class="photo p2">
+<<div class="photo p2" onclick="openImage('assets/photo2.jpg', 'فاكره دي كانت امتى؟ ')">
     <img src="assets/photo2.jpg" alt="ذكرى">
+    <div class="photo-overlay">
+        <span>اضغط لفتح الصورة</span>
+    </div>
 </div>
 
 
@@ -255,8 +262,11 @@ href="style.css">
 
 <article>
 
-<div class="photo p3">
+<<div class="photo p3" onclick="openImage('assets/photo3.jpg', 'ذكرى لسه موجودة')">
     <img src="assets/photo3.jpg" alt="ذكرى">
+    <div class="photo-overlay">
+        <span>اضغط لفتح الصورة</span>
+    </div>
 </div>
 
 
@@ -661,6 +671,33 @@ value="0">
 
 </div>
 
+    <!-- ================= Image Viewer ================= -->
+
+<div class="image-viewer" id="imageViewer">
+
+    <button
+        class="image-close"
+        onclick="closeImage()">
+        ×
+    </button>
+
+    <div class="image-viewer-content">
+
+        <div
+            class="image-message"
+            id="imageMessage">
+        </div>
+
+        <img
+            id="viewerImage"
+            src=""
+            alt="صورة">
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 
 
 <script src="script.js"></script>
